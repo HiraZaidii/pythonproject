@@ -1,3 +1,11 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+"""
+BATTLESHIP
+grid of 10x10 with 8 ships in different lengths
+
+LEGEND
+. = water or empty space
+0 = part of the ship
+x = part hit with a bullet
+# = missed bullet
+"""
+
