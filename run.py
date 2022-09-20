@@ -62,17 +62,17 @@ def try_to_place_ship_on_grid(row, col, direction, length):
                 return False
                 end_col = col + length
 
-     elif direction == "up":
+    elif direction == "up":
             if row - length < 0:
                         return False
                         start_row = row - length + 1
 
-     elif direction = "left":
+    elif direction == "down":
             if row + length >= grid_size:
                                 return False
                                 end_row  = row + length
 
-return validate_grid_and_place_ship(start_row, end_row, start_col, end_col)
+    return validate_grid_and_place_ship(start_row, end_row, start_col, end_col)
 
 """ create grid and place ships randomly """
 def create_grid():
@@ -104,11 +104,11 @@ def create_grid():
         if try_to_place_ship_on_grid(random_row, random_col, direction, ship_size):
             num_of_ships_placed += 1
 
- """Will print the grid with rows A-J and columns 0-9"""
- def print_grid():
-
-    global grid
-    global alphabet
+      
+    def print_grid():
+       """Will print the grid with rows A-J and columns 0-9"""
+       global grid
+       global alphabet
 
     debug_mode = True
     
@@ -120,9 +120,9 @@ def create_grid():
             if grid[row][col] == "0":
                 if debug_mode:
                     print("0", end=" ")
-                    else:
+                else:
                     print(".", end=" ")
-                    else:
+            else:
                 print(grid[row][col], end=" ")
         print("")
 
@@ -161,3 +161,81 @@ def accept_bullet():
             is_valid_bullet = True
             
             return row, col
+
+    def check_ship_sunk(row, col):
+        """When all parts of the ships are hit and the ship sinks"""
+        global ship_positions
+        global grid
+
+        for position in ship_positions:
+            start_row = position[0]
+            end_row = position[1]
+            start_col = position[2]
+            end_col = position[3]
+            if start_row <= row <= end_row and start_col <= col <= end_col:
+                # Check if the whole ship is sunk
+                for r in range(start_row, end_row):
+                    for c in range(start_col, end_col):
+                        if grid[r][c] != "X":
+                            return False
+        return True
+
+    def fire_bullet():
+        """After bullet being shut this will adjust the grid accordingly"""
+        global grid
+        global num_of_ships_sunk
+        global bullets_left
+
+        row, col = accept_bullet()
+        print("")
+        print("----------------------------")
+
+        if grid[row][col] == ".":
+            print("Missed it! Better luck next time!")
+            grid[row][col] = "#"
+        elif grid[row][col] == "0":
+            print("Nice shot!", end=" ")
+            grid[row][col] = "X"
+            if check_ship_sunk(row, col):
+                print("A ship is down! Yeah!")
+                num_of_ships_sunk += 1
+            else:
+                print("Yeah! You shot a ship!")
+
+        bullets_left -= 1
+
+    def check_game():
+      """"In case there all bullets are used or all ships are down"""
+    global num_of_ships_sunk
+    global num_of_ships
+    global bullets_left
+    global game_over
+
+    if num_of_ships == num_of_ships_sunk:
+        print("YEAH, you won!!")
+        game_over = True
+    elif bullets_left <= 0:
+        print("No more bullets! Better luck next time!")
+        game_over = True
+
+    def main():
+        """"Entry point of the app that runs the game loop"""
+        global game_over
+
+        print("-----Are you ready for Battleships?-----")
+        print("Let's battle! U have 50 bullets and 6 ships to hit!")
+
+        create_grid()
+
+        while game_over is False:
+            print_grid()
+            print("Remaining ships: " + str(num_of_ships - num_of_ships_sunk))
+            print("Remaining bullets: " + str(bullets_left))
+            fire_bullet()
+            print("----------------------------")
+            print("")
+            check_game()
+
+    if __name__ == '__main__':
+       """Will only be called when program is run from terminal or an IDE like PyCharms"""
+       main()        
