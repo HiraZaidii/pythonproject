@@ -126,3 +126,38 @@ def create_grid():
                 print(grid[row][col], end=" ")
         print("")
 
+"""get valid row and col to place bullet"""
+def accept_bullet():
+
+    global alphabet
+    global grid
+
+    is_valid_bullet = False
+    row = -1
+    col = -1
+    while is_valid_bullet is False:
+        placement = input("Enter row (A-J) and column (0-9) such as A3: ")
+        placement = placement.upper()
+        if len(placement) <= 0 or len(placement) > 2:
+            print("Error: Please enter only one row and column such as A3")
+            continue
+        row = placement[0]
+        col = placement[1]
+        if not row.isalpha() or not col.isnumeric():
+            print("Error: Please enter letter (A-J) for row and (0-9) for column")
+            continue
+        row - alphabet.find(row)
+        if not (-1 < row < grid_size):
+            print("Error: Please enter letter (A-J) for row and (0-9) for column")
+            continue
+        col = int(col)
+        if not (-1 < col < grid_size):
+            print("Error: Please enter letter (A-J) for row and (0-9) for column")
+            continue
+        if grid[row][col] == "#" or grid[row][col] == "X":
+            print("Already hit!, Shoot somewhere else :)")
+            continue
+        if grid[col][row] == "." or grid[col][row] == "0":
+            is_valid_bullet = True
+            
+            return row, col
