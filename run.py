@@ -106,14 +106,14 @@ def create_grid():
         if place_ship_on_grid(random_row, random_col, direction, ship_size):
             num_of_ships_placed += 1
 
-      
+
 def print_grid():
     """Will print the grid with rows A-J and columns 0-9"""
     global grid
     global alphabet
 
     debug_mode = True
-    
+
     alphabet = alphabet[0: len(grid) + 1]
 
     for row in range(len(grid)):
@@ -146,22 +146,22 @@ def accept_bullet():
         row = placement[0]
         col = placement[1]
         if not row.isalpha() or not col.isnumeric():
-            print("Error: Please enter letter (A-J) for row and (0-9) for column")
+            print("Error: Please enter(A-J) for row and (0-9) for column")
             continue
         row - alphabet.find(row)
         if not (-1 < row < grid_size):
-            print("Error: Please enter letter (A-J) for row and (0-9) for column")
+            print("Error: Please enter(A-J) for row and (0-9) for column")
             continue
         col = int(col)
         if not (-1 < col < grid_size):
-            print("Error: Please enter letter (A-J) for row and (0-9) for column")
+            print("Error: Please enter(A-J) for row and (0-9) for column")
             continue
         if grid[row][col] == "#" or grid[row][col] == "X":
             print("Already hit!, Shoot somewhere else :)")
             continue
         if grid[col][row] == "." or grid[col][row] == "0":
             is_valid_bullet = True
-            
+
             return row, col
 
     def check_ship_sunk(row, col):
@@ -240,5 +240,4 @@ def check_game():
             check_game()
 
     if __name__ == '__main__':
-        """Will only be called when program is run from terminal or an IDE like PyCharms"""
-        main()        
+        main()
