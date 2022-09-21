@@ -223,7 +223,7 @@ def accept_bullet():
         global game_over
 
         print("-----Are you ready for Battleships?-----")
-        print("Let's battle! U have 50 bullets and 6 ships to hit!")
+        print("Let's battle! U have 40 bullets and 6 ships to hit!")
 
         create_grid()
 
