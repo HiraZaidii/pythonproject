@@ -13,7 +13,7 @@ x = part hit with a bullet
 # = missed bullet
 """
 # global var for grid
-grid =[[]]
+grid = [[]]
 # var for grid size
 grid_size = 10
 # var for number of ships
@@ -29,54 +29,56 @@ ship_positions = [[]]
 # var for alphabet
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-"""check row or column to place ship"""
+
 def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
+    """check row or column to place ship"""
     global grid
     global ship_positions
 
     all_valid = True
     for r in range(start_row, end_row):
         for c in range(start_col, end_col):
-            grid[r][c] != ".":
-            all_valid= False
-            break
-        if all_valid: 
-            ship_positions.append([start_row, end_row, start_col, end_col])
-            for r in range(start_row, end_row):
-                for c in range(start_col, end_col):
-                    grid[r][c] = "0"
-                    return all_valid
+            if grid[r][c] != ".":
+                all_valid = False
+                break
+    if all_valid:
+        ship_positions.append([start_row, end_row, start_col, end_col])
+        for r in range(start_row, end_row):
+            for c in range(start_col, end_col):
+                grid[r][c] = "0"
+        return all_valid
 
-"""place ship on grid"""
-def try_to_place_ship_on_grid(row, col, direction, length):
+
+def place_ship_on_grid(row, col, direction, length):
+    """place ship on grid"""
     global grid_size
 
     start_row, end_row, start_col, end_col = row, row + 1, col, col + 1
     if direction == "left":
         if col - length < 0:
             return False
-            start_col = col - length + 1
+        start_col = col - length + 1
 
     elif direction == "right":
-            if col + length >= grid_size:
-                return False
-                end_col = col + length
+        if col + length >= grid_size:
+            return False
+        end_col = col + length
 
     elif direction == "up":
-            if row - length < 0:
-                        return False
-                        start_row = row - length + 1
+        if row - length < 0:
+            return False
+        start_row = row - length + 1
 
     elif direction == "down":
-            if row + length >= grid_size:
-                                return False
-                                end_row  = row + length
+        if row + length >= grid_size:
+            return False
+        end_row = row + length
 
     return validate_grid_and_place_ship(start_row, end_row, start_col, end_col)
 
-""" create grid and place ships randomly """
-def create_grid():
 
+def create_grid():
+    """ create grid and place ships randomly """
     global grid
     global grid_size
     global num_of_ships
@@ -98,17 +100,17 @@ def create_grid():
 
     while num_of_ships_placed != num_of_ships:
         random_row = random.randint(0, rows - 1)
-        random_cols = random.randint(0, cols - 1)
+        random_col = random.randint(0, cols - 1)
         direction = random.choice(["left", "right", "up", "down"])
         ship_size = random.randint(3, 5)
-        if try_to_place_ship_on_grid(random_row, random_col, direction, ship_size):
+        if place_ship_on_grid(random_row, random_col, direction, ship_size):
             num_of_ships_placed += 1
 
       
-    def print_grid():
-       """Will print the grid with rows A-J and columns 0-9"""
-       global grid
-       global alphabet
+def print_grid():
+    """Will print the grid with rows A-J and columns 0-9"""
+    global grid
+    global alphabet
 
     debug_mode = True
     
@@ -126,9 +128,9 @@ def create_grid():
                 print(grid[row][col], end=" ")
         print("")
 
-"""get valid row and col to place bullet"""
-def accept_bullet():
 
+def accept_bullet():
+    """get valid row and col to place bullet"""
     global alphabet
     global grid
 
@@ -204,8 +206,9 @@ def accept_bullet():
 
         bullets_left -= 1
 
-    def check_game():
-      """"In case there all bullets are used or all ships are down"""
+
+def check_game():
+    """In case there all bullets are used or all ships are down"""
     global num_of_ships_sunk
     global num_of_ships
     global bullets_left
@@ -237,5 +240,5 @@ def accept_bullet():
             check_game()
 
     if __name__ == '__main__':
-       """Will only be called when program is run from terminal or an IDE like PyCharms"""
-       main()        
+        """Will only be called when program is run from terminal or an IDE like PyCharms"""
+        main()        
