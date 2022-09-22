@@ -1,33 +1,31 @@
-import random
-import randint
+from random import randint
 
+board = []
+""" The board will represent the ocean for the battleship """
 
-"""
-BATTLESHIP
-grid of 10x10 with 6 ships in different lengths
+for x in range(5):
+    board.append(["O"] * 5)
+""" create board of 5 by 5 """
 
-LEGEND
-. = water or empty space
-0 = part of the ship
-x = part hit with a bullet
-# = missed bullet
-"""
-# global var for grid
-grid = [[]]
-# var for grid size
-grid_size = 10
-# var for number of ships
-num_of_ships = 6
-# var for bullets left
-bullets_left = 40
-# var for game over
-game_over = False
-# var for num of ships sunk
-num_of_ships_sunk = 0
-# var for position of ships
-ship_positions = [[]]
-# var for alphabet
-alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+def print_board(board):
+    for row in board:
+        print" ".join(row)
+
+print_board(board)
+
+def random_row(board):
+    return randint(0, len(board) - 1)
+"""to acces random rows"""
+def random_col(board):
+    return randint(0, len(board), - 1)
+"""to acces random cols"""
+ship_row = random_row(board)
+ship_col = random_col(board)
+
+for turn in range(4):
+    print "Turn", turn + 1
+    guess_row = int(raw_input("Which row?: "))
+    guess_col = int(raw_input("Which col?: "))
 
 
 def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
