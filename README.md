@@ -27,6 +27,8 @@ You can hit the ship by inserting a number from 0 to 4 for the row and for the c
   * This was used for solving issues regarding the commits.
 * Heroku 
   * This was used to deploy the game in a live environment.
+I had to test the app several times in Heroku, please read more about it in Bugs.
+
 
 ## Technology used
 
@@ -49,10 +51,12 @@ You can hit the ship by inserting a number from 0 to 4 for the row and for the c
 
 ## Bugs
 
-I started off this project with a bit more complicated code that was not possible to timely debug and used PyCharm as an IDE of which I was unsure if it would be allowed as Pygame was prohibited. This project was inspired by the Youtube Tutorial of [CS Students ](https://www.youtube.com/watch?v=MgJBgnsDcF0&t=1165s)
-Hence I created a simple version of the Battleship.
-PEP8 was approving print entry without "()" but I got an error in Heroku while deploying so this was debugged by adding "()".
+The first time the code went through PEP8 validator I had a lot of wrong indentation and whitespaces. I fixed this until the code would pass through PEP8 validator.
+After deploying I was getting bugs/errors while running the program in Heroku. I fixed the code as much of the print statements did not have "()" I had to fix this and then tested again after deployment.
 
+## Issue
+
+I intially started this project by following a Python Battleship Tutorial by CS Student ( see credits section for more info ). I could not finish it due to lack of time. I really wanted to try to PyCharm as an IDE as per the tutorial but due to some licensing issues on my (work)laptop I was not able to download it hence I decided to go for a simpler version of the Battleship.
 
 ## Credits
 
