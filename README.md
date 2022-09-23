@@ -13,23 +13,25 @@ In this game the player has to search and hit ships by using his keyboard.
 * Credits
 
 
+## Features
 
-## Creating the Heroku app
+The game consists of a grid that is 5 by 5 in "O" shapes.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## Testing
 
-1. `heroku/python`
-2. `heroku/nodejs`
+The python code I have written was checked through PEP8 online.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## Technology used
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
 
-Connect your GitHub repository and deploy as normal.
 
-## Constraints
+## Deployment
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
------
-Happy coding!
+
+## Bugs
+
+I started off this project with a bit more complicated code that was not possible to timely debug and used PyCharm as an IDE of which I was unsure if it would be allowed as Pygame was prohibited. Hence I created a simple version of the Battleship.
+
+
+## Credits
