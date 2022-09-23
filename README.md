@@ -52,7 +52,7 @@ I had to test the app several times in Heroku, please read more about it in Bugs
 ## Bugs
 
 The first time the code went through PEP8 validator I had a lot of wrong indentation and whitespaces. I fixed this until the code would pass through PEP8 validator.
-After deploying I was getting bugs/errors while running the program in Heroku. I fixed the code as much of the print statements did not have "()" I had to fix this and then tested again after deployment.
+After running in the terminalI came across a few errors. I fixed the code as much of the print statements did not have "()" I had to fix this and then tested again after deployment.
 
 ## Issue
 
