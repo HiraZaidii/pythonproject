@@ -32,7 +32,7 @@ ship_col = random_col(board)
 
 
 for turn in range(4):
-    print("Turn"), turn + 1
+    print("Select a number between 0-4"), turn + 1
     guess_row = int(input("Which row?: "))
     guess_col = int(input("Which col?: "))
     if guess_row == ship_row and guess_col == ship_col:
@@ -51,4 +51,7 @@ for turn in range(4):
             board[guess_row][guess_col] = "X"
             print_board(board)
         if (turn == 3):
-            print("Better luck next time! This game is over")
+            print("Better luck next time! Try again!")
+            # Print (turn + 1) here!
+            print turn + 1
+            print_board(board)
