@@ -53,5 +53,5 @@ for turn in range(4):
         if (turn == 3):
             print("Better luck next time! Try again!")
             # Print (turn + 1) here!
-            print("turn + 1")
+            print(turn + 1)
             print_board(board)
