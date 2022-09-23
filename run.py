@@ -40,8 +40,8 @@ for turn in range(4):
         break
 # code for missing
     else:
-        if (guess_row < 1 or guess_row > 5) or (
-              guess_col < 1 or guess_col > 5):
+        if (guess_row < 0 or guess_row > 4) or (
+              guess_col < 0 or guess_col > 4):
             print("Haha, wrong spot!")
         elif (board[guess_row][guess_col] == "X"):
             print("You've already hit this one!")
