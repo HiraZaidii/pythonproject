@@ -16,7 +16,7 @@ In this game the player has to search and hit ships by using his keyboard.
 ## Features
 
 A classic battleship game that has a board/grid of 5 by 5. The board is presented by the letter "O"
-You can hit the ship by inserting a number for row and a number for column. The program will give you a reply in text everytime you take a turn. Once you do hit a spot the grid will show a "X" on that spot. You have 3 turns.
+You can hit the ship by inserting a number from 0 to 4 for the row and for the column. The program will give you a reply in text everytime you take a turn. Once you do hit a spot the grid will show a "X" on that spot. You have 3 turns.
 
 ## Testing
 
@@ -56,7 +56,8 @@ PEP8 was approving print entry without "()" but I got an error in Heroku while d
 ## Credits
 
 * I was inspired by a lot of YouTube Tutorials for making this project but the main remains:
-[CS Students ](https://www.youtube.com/watch?v=MgJBgnsDcF0&t=1165s)
+[CS Students ](https://www.youtube.com/watch?v=MgJBgnsDcF0&t=1165s) for the difficult one I couldn't finish
+[Dylan Israel](https://www.youtube.com/watch?v=7Ki_2gr0rsE) for the one I am submitting
 * Code Institute for the course material and overview of deployment
 * Slack and Tutor support 
-* My loving family
+* I specially want to thank Student Care, due to some personal reasons I was on a leave of 3 months and they did the best they could during that period to support me. I have submitted this project just returning from the leave.
