@@ -17,7 +17,7 @@ In this game the player has to search and hit ships by using his keyboard.
 ## Features
 
 A classic battleship game that has a board/grid of 5 by 5. The board is presented by the letter "O"
-You can hit the ship by inserting a number from 0 to 4 for the row and for the column. The program will give you a reply in text everytime you take a turn. Once you do hit a spot the grid will show a "X" on that spot. You have 3 turns.
+You can hit the ship by inserting a number from 0 to 4 for the row and for the column. The program will give you a reply in text everytime you take a turn. Once you do hit a spot the grid will show a "X" on that spot. You have 4 turns and then it's game over!
 
 ## Testing
 
