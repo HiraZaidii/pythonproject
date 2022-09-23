@@ -10,21 +10,19 @@ for x in range(5):
 
 def print_board(board):
     for row in board:
-        print(" ").join(row)
+        print(" ".join(row))
 
-
+# start msg
+print("Show me what you got! Hit the Battleship!")
 print_board(board)
 
-"""to acces random rows"""
 
-
+# to acces random rows
 def random_row(board):
     return randint(0, len(board) - 1)
 
 
-"""to acces random cols"""
-
-
+# to acces random rows
 def random_col(board):
     return randint(0, len(board) - 1)
 
@@ -40,11 +38,14 @@ for turn in range(4):
     if guess_row == ship_row and guess_col == ship_col:
         print("Wow, you hit the right spot!")
         break
+# code for missing
     else:
-        if(guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
+        if (guess_row < 0 or guess_row > 4) or (
+              guess_col < 0 or guess_col > 4):
             print("Haha, wrong spot!")
-        elif(board[guess_row][guess_col] == "X"):
+        elif (board[guess_row][guess_col] == "X"):
             print("You've already hit this one!")
+# print for if you do not wint the game
         else:
             print("Too bad! You didn't hit the battleship")
             board[guess_row][guess_col] = "X"
