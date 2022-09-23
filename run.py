@@ -29,7 +29,7 @@ ship_col = random_col(board)
 
 
 for turn in range(4):
-    print "Turn", turn + 1
+    print("Turn"), turn + 1
     guess_row = int(raw_input("Which row?: "))
     guess_col = int(raw_input("Which col?: "))
     if guess_row == ship_row and guess_col == ship_col:

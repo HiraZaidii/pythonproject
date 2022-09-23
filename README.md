@@ -32,6 +32,7 @@ The python code I have written was checked through PEP8 online.
 ## Bugs
 
 I started off this project with a bit more complicated code that was not possible to timely debug and used PyCharm as an IDE of which I was unsure if it would be allowed as Pygame was prohibited. Hence I created a simple version of the Battleship.
+PEP8 was approving print entry withou "()" but I got an error in Heroku while deploying so this was debugged by adding "()"
 
 
 ## Credits
