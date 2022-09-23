@@ -4,6 +4,8 @@ This is a simple CLI based Battleship game made by using basic Python code.
 In this game the player has to search and hit ships by using his keyboard. 
 ![python](https://user-images.githubusercontent.com/98779723/191877713-6a9ff2d7-a380-4322-8334-96c33fa67508.png)
 
+[The Game](https://battleshiphira.herokuapp.com/)
+
 ## Index
 
 * Features
